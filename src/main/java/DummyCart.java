@@ -13,6 +13,5 @@ public class DummyCart {
     System.out.println(myObj1.x);
     System.out.println(myObj2.x);
     System.out.println("Hello, is this a codesmell");
-    System.out.println("Hello, is this another codesmell");
   }
 }

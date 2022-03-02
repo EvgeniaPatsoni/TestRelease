@@ -17,7 +17,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Changelog
-        uses: scottbrenner/generate-changelog-action@master
+        uses: Bullrich/generate-release-changelog@master
         id: Changelog
         env:
           REPO: ${{ github.repository }}
@@ -29,7 +29,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body: |
+          body: Changes in this release: |
             ${{ steps.Changelog.outputs.changelog }}
           draft: false
           prerelease: false
