@@ -17,7 +17,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Changelog
-        uses: Bullrich/generate-release-changelog@master
+        uses: scottbrenner/generate-changelog-action@master
         id: Changelog
         env:
           REPO: ${{ github.repository }}
