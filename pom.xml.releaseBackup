@@ -60,7 +60,7 @@
             <version>2.5.3</version>
             <configuration>
               <autoVersionSubmodules>true</autoVersionSubmodules>
-              <scmCommentPrefix>'maven-release-plugin: '</scmCommentPrefix>   
+              <scmCommentPrefix>"maven-release-plugin: "</scmCommentPrefix>   
             </configuration>
           </plugin>
           <plugin>
