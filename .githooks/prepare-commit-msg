@@ -14,7 +14,7 @@ if [[ "$commit_message" =~ $convetional_commit_regex ]]; then
 fi
 
 # Uh-oh, this is not a conventional commit, show an example and link to the spec.
-echo -e "\e[31mThe commit message does not meet the Conventional Commit standard\e[0m"
+echo -e "\e[31mThe commit message does not meet the Conventional Commit standard\e[0m $commit_message"
 echo "An example of a valid message is: "
 echo "  feat(login): add the 'remember me' button"
 echo "More details at: https://www.conventionalcommits.org/en/v1.0.0/#summary"
