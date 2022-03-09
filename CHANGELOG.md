@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/EvgeniaPatsoni/TestRelease/compare/v2.1.1...v3.0.0) (2022-03-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* foo breaking change
+
+### Features
+
+* add foo feature ([c62d5e4](https://github.com/EvgeniaPatsoni/TestRelease/commit/c62d5e4f13d38a7d2ee269c2c86d0e97467f6ac8))
+* new class ([0e0016e](https://github.com/EvgeniaPatsoni/TestRelease/commit/0e0016e651b8bc56d8db8ecd2137e500b12c11cd))
+
 ### [2.1.1](https://github.com/EvgeniaPatsoni/TestRelease/compare/v2.1.0...v2.1.1) (2022-03-09)
 
 
