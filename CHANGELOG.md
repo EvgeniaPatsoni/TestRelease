@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/EvgeniaPatsoni/TestRelease/compare/v2.0.0...v2.1.0) (2022-03-09)
+
+
+### Features
+
+* added new functionality ([c88c5df](https://github.com/EvgeniaPatsoni/TestRelease/commit/c88c5dfa038a4d483e35d230916f773f518198da))
+
+
+### Bug Fixes
+
+* removed codesmell ([da98bcb](https://github.com/EvgeniaPatsoni/TestRelease/commit/da98bcba0aeeabf6460626e01224d2ef30304dbe))
+
 ## 2.0.0 (2022-03-09)
 
 
