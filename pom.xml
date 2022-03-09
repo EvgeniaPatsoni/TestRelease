@@ -91,7 +91,7 @@
                     <additionalOptions>-html5</additionalOptions>
                 </configuration>
             </plugin>
-            <plugin>
+          <!--  <plugin>
                 <groupId>se.bjurr.gitchangelog</groupId>
                 <artifactId>git-changelog-maven-plugin</artifactId>
                 <version>1.88</version>
@@ -140,6 +140,7 @@
                     </execution>
                 </executions>
             </plugin>
+            -->
         </plugins>
         <pluginManagement>
             <plugins>

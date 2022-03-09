@@ -11,3 +11,5 @@ bin
 build
 out
 target
+pom.xml.releaseBackup
+release.properties
