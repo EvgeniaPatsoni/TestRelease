@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://github.com/EvgeniaPatsoni/TestRelease/releases/tag/2.0.0) (2022-03-09)
+
+### Features
+
+ -  new feature ([72b8402125f7c73](https://github.com/EvgeniaPatsoni/TestRelease/commit/72b8402125f7c73fb5f0bad53746c70dc3fd7f0f))
+ -  changelog ([1a0c1f80df6c421](https://github.com/EvgeniaPatsoni/TestRelease/commit/1a0c1f80df6c4219080a8e816f884b2ee9d6f66e))
+ -  changelog ([44775d6289611e3](https://github.com/EvgeniaPatsoni/TestRelease/commit/44775d6289611e32608619e8ead9f1be25437146))
+
+### Bug Fixes
+
+ -  changelog ([0d4986dc767091c](https://github.com/EvgeniaPatsoni/TestRelease/commit/0d4986dc767091c3f22057b1a03a0152cf9b86fe))
+
 ## [1.0.10](https://github.com/EvgeniaPatsoni/TestRelease/releases/tag/1.0.10) (2022-03-09)
 
 
