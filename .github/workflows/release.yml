@@ -15,12 +15,12 @@ jobs:
         with:
           fetch-depth: 0
       - name: Changelog
-        uses: Bullrich/generate-release-changelog@master
+        uses: mikepenz/release-changelog-builder-action@{latest-release}
         with:
           configuration: "configuration.json"
         id: Changelog
         env:
-          REPO: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create release
         id: create_release
         uses: actions/create-release@latest
