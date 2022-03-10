@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.6](https://github.com/EvgeniaPatsoni/TestRelease/compare/3.1.5...3.1.6) (2022-03-10)
+
+
+### Bug Fixes
+
+* update releases ([0bb3dd2](https://github.com/EvgeniaPatsoni/TestRelease/commits/0bb3dd2ea86bffefca5ffe177ea8f86a564c9f83))
+
 ### [3.1.5](https://github.com/EvgeniaPatsoni/TestRelease/compare/3.1.4...3.1.5) (2022-03-10)
 
 
