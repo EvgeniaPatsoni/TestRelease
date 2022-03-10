@@ -18,7 +18,7 @@ jobs:
         uses: fregante/release-with-changelog@v3.5.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          exclude: '^(build|chore|ci|docs|perf|refactor|revert|style|release)'
+          exclude: '^build: '
           commit-template: '- {title} ← {hash}'
           template: |
               ### Release Notes
