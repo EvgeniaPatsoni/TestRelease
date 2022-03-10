@@ -12,9 +12,5 @@
         "title": "## 🧪 Tests",
         "labels": ["test: "]
       }
-    ],
-    "sort": "ASC",
-    "template": "${{CHANGELOG}}\n\n<details>\n<summary>Uncategorized</summary>\n\n${{UNCATEGORIZED}}\n</details>",
-    "pr_template": "- ${{TITLE}}\n   - PR: #${{NUMBER}}",
-    "empty_template": "- no changes"
+    ]
 }
