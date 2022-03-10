@@ -15,20 +15,12 @@ jobs:
         with:
           fetch-depth: 0
       - name: Changelog
-        uses: fregante/release-with-changelog@v3.5.1
+        uses: mikepenz/release-changelog-builder-action@v2.9.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          exclude: '^build: '
-          commit-template: '- {title} ← {hash}'
-          template: |
-              ### Release Notes
-
-              {commits}
-
-              {range}
-
-              🚀
+          configuration: 'configuration.json'
         id: Changelog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create release
         id: create_release
         uses: actions/create-release@latest
