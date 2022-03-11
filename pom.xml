@@ -3,7 +3,7 @@
 
     <groupId>com.neiljbrown.examples</groupId>
     <artifactId>java11-examples</artifactId>
-    <version>4.0.0</version>
+    <version>4.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>java11-examples</name>
@@ -62,14 +62,7 @@
               <autoVersionSubmodules>true</autoVersionSubmodules>
               <scmCommentPrefix>'maven-release-plugin: '</scmCommentPrefix>   
             </configuration>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-deploy-plugin</artifactId>
-            <configuration>
-              <skip>true</skip>
-            </configuration>
-          </plugin>            
+          </plugin>          
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -91,56 +84,6 @@
                     <additionalOptions>-html5</additionalOptions>
                 </configuration>
             </plugin>
-          <!--  <plugin>
-                <groupId>se.bjurr.gitchangelog</groupId>
-                <artifactId>git-changelog-maven-plugin</artifactId>
-                <version>1.88</version>
-                <executions>
-                    <execution>
-                        <id>GenerateGitChangelog</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>git-changelog</goal>
-                        </goals>
-                        <configuration>
-                            <toRef>main</toRef>
-                            <templateContent>
-                                <![CDATA[
-# Changelog
-
-{{#tags}}
-{{#ifReleaseTag .}}
-## [{{name}}](https://github.com/EvgeniaPatsoni/TestRelease/releases/tag/{{name}}) ({{tagDate .}})
-
-  {{#ifContainsType commits type='feat'}}
-### Features
-
-    {{#commits}}
-      {{#ifCommitType . type='feat'}}
- - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://github.com/EvgeniaPatsoni/TestRelease/commit/{{hashFull}}))
-      {{/ifCommitType}}
-    {{/commits}}
-  {{/ifContainsType}}
-
-  {{#ifContainsType commits type='fix'}}
-### Bug Fixes
-
-    {{#commits}}
-      {{#ifCommitType . type='fix'}}
- - {{#eachCommitScope .}} **{{.}}** {{/eachCommitScope}} {{{commitDescription .}}} ([{{hash}}](https://github.com/EvgeniaPatsoni/TestRelease/commit/{{hashFull}}))
-      {{/ifCommitType}}
-    {{/commits}}
-  {{/ifContainsType}}
-
-{{/ifReleaseTag}}
-{{/tags}}
-                 ]]>
-                            </templateContent>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            -->
         </plugins>
         <pluginManagement>
             <plugins>
