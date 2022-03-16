@@ -1,4 +1,13 @@
-# 4.0.4 (2022-03-16)
+# 4.0.5 (2022-03-16)
+### Bug Fixes
+* test
+* pom
+* test
+* delete old files
+### Features
+* changelog-maven-plugin
+
+## 4.0.4 (2022-03-16)
 ### Bug Fixes
 * rename changelogs
 ### Features
