@@ -96,9 +96,6 @@
                    <groupId>com.github.eugenenosenko</groupId>
                    <artifactId>changelog-maven-plugin</artifactId>
                    <version>0.0.3</version>
-                   <configuration>
-                        <amendLastCommit>true</amendLastCommit>         <!-- default is "false"-->
-                   </configuration>
                 </plugin>  
             </plugins>    
         </pluginManagement>    

@@ -1,4 +1,13 @@
-# 4.0.5 (2022-03-16)
+# 4.1.2 (2022-03-16)
+### Bug Fixes
+* test
+* fix version
+* fix version
+* test
+### Chores
+* update version file
+
+## 4.0.5 (2022-03-16)
 ### Bug Fixes
 * test
 * pom
