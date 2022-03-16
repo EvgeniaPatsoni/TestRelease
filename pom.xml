@@ -3,7 +3,7 @@
 
     <groupId>com.neiljbrown.examples</groupId>
     <artifactId>java11-examples</artifactId>
-    <version>4.1.2</version>
+    <version>4.1.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>java11-examples</name>
@@ -14,7 +14,7 @@
         <url>https://github.com/EvgeniaPatsoni/TestRelease.git</url>
         <connection>scm:git:https://github.com/EvgeniaPatsoni/TestRelease.git</connection>
         <developerConnection>scm:git:https://github.com/EvgeniaPatsoni/TestRelease.git</developerConnection>
-        <tag>4.1.2</tag>
+        <tag>4.0.5</tag>
       </scm>    
 
     <properties>
