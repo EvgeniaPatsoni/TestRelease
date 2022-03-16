@@ -3,7 +3,7 @@
 
     <groupId>com.neiljbrown.examples</groupId>
     <artifactId>java11-examples</artifactId>
-    <version>4.0.5-SNAPSHOT</version>
+    <version>4.0.5</version>
     <packaging>jar</packaging>
 
     <name>java11-examples</name>
