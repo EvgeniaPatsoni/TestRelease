@@ -14,7 +14,7 @@
         <url>https://github.com/EvgeniaPatsoni/TestRelease.git</url>
         <connection>scm:git:https://github.com/EvgeniaPatsoni/TestRelease.git</connection>
         <developerConnection>scm:git:https://github.com/EvgeniaPatsoni/TestRelease.git</developerConnection>
-        <tag>4.1.0</tag>
+        <tag>4.0.5</tag>
       </scm>    
 
     <properties>
