@@ -3,7 +3,7 @@
 
     <groupId>com.neiljbrown.examples</groupId>
     <artifactId>java11-examples</artifactId>
-    <version>4.0.3</version>
+    <version>4.0.4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>java11-examples</name>
@@ -54,6 +54,11 @@
 
     <build>
         <plugins>
+          <plugin>
+                <groupId>io.github.marwin1991</groupId>
+                <artifactId>keep-changelog-maven-plugin</artifactId>
+                <version>0.3.0</version>
+          </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-release-plugin</artifactId>
