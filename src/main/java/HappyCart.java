@@ -7,4 +7,6 @@ public class HappyCart {
         this.age=age;
         this.name=name;
     }
+
+    System.out.println("testtesttest");
 }
