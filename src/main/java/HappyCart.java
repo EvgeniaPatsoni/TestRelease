@@ -4,6 +4,7 @@ public class HappyCart {
     private int age;
     private int hello;
     private int cart;
+    public int public_var;
 
     public HappyCart(String name, int age){
         this.age=age;
