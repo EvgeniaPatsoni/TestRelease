@@ -11,7 +11,7 @@
     <url>https://github.com/neiljbrown/java11-examples</url>
 
       <scm>
-        <url>https://github.com/EvgeniaPatsoni/TestRelease.git</url>
+        <url>https://EvgeniaPatsoni@github.com/EvgeniaPatsoni/TestRelease.git</url>
         <connection>scm:git:https://github.com/EvgeniaPatsoni/TestRelease.git</connection>
         <developerConnection>scm:git:https://github.com/EvgeniaPatsoni/TestRelease.git</developerConnection>
         <tag>4.0.5</tag>
