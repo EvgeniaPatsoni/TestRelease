@@ -1,4 +1,20 @@
 
+<a name="0.0.3"></a>
+## [0.0.3](https://github.com/EvgeniaPatsoni/TestRelease/compare/0.0.2...0.0.3) (2022-03-31)
+
+### Bug Fixes
+
+* fixes in ... class
+
+### Code Refactoring
+
+* code refactoring in ... class
+
+### Features
+
+* new functionality added
+
+
 <a name="0.0.2"></a>
 ## [0.0.2](https://github.com/EvgeniaPatsoni/TestRelease/compare/0.0.1...0.0.2) (2022-03-31)
 
