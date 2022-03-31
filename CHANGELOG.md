@@ -1,4 +1,30 @@
 
+<a name="0.0.2"></a>
+## [0.0.2](https://github.com/EvgeniaPatsoni/TestRelease/compare/0.0.1...0.0.2) (2022-03-31)
+
+### Bug Fixes
+
+* fixed bugs and codesmells in ...
+
+### Code Refactoring
+
+* more code refactoring in ...
+* code refactoring in ...
+
+### Features
+
+* added many more new features in ...
+* added new features in ...
+
+### File Deletions
+
+* deleted all old files
+
+### Performance Improvements
+
+* improved ... test
+
+
 <a name="0.0.1"></a>
 ## 0.0.1 (2022-03-31)
 
