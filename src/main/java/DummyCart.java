@@ -6,6 +6,7 @@ public class DummyCart {
   int x = 5;
   int a=5;
   int c=6;
+  int d=7;
   HappyCart happyCart = new HappyCart("cart", 15);
 
   public static void main(String[] args) {
