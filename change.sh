@@ -16,7 +16,6 @@ echo $GIT_LOG
 
 features=()
 fixes=()
-releases=()
 deletions=()
 
 # Split commits uppon * character and save to arrays depending on commit message#
@@ -28,9 +27,6 @@ for i in "${commits[@]}"; do
   elif [[ $i = fix:* ]] 
   then
     fixes+=($i)
-  elif [[ $i = release:* ]]  
-  then
-    releases+=($i)
   elif [[ $i = delete:* ]]   
   then
     deletions+=($i) 
@@ -46,7 +42,6 @@ else
   do
     echo "$i" >> $OUTPUT_FILE
   done
-  #echo "${features[@]}" >> $OUTPUT_FILE
 fi
 
 if [ ${#fixes[@]} -eq 0 ]; then
@@ -57,7 +52,6 @@ else
   do
     echo "$i" >> $OUTPUT_FILE
   done  
-  #echo "${fixes[@]}" >> $OUTPUT_FILE
 fi
 
 if [ ${#deletions[@]} -eq 0 ]; then
@@ -68,5 +62,4 @@ else
   do
     echo "$i" >> $OUTPUT_FILE
   done   
-  #echo "${deletions[@]}" >> $OUTPUT_FILE
 fi
