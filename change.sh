@@ -10,7 +10,7 @@ echo '## Changelog' >> $OUTPUT_FILE
 git tag --sort=taggerdate | tail -1 >> $OUTPUT_FILE
 
 # generate the changelog
-GIT_LOG=`git log --pretty="*%s (%h)" $(git tag --sort=-taggerdate | head -2)...$(git tag --sort=-taggerdate | head -1)`
+GIT_LOG=`git log --reverse --pretty="*%s (%h)" $(git tag --sort=-taggerdate | head -2)...$(git tag --sort=-taggerdate | head -1)`
 echo $GIT_LOG
 
 features=()
@@ -60,6 +60,3 @@ else
   echo '### Deletions' >> $OUTPUT_FILE
   echo "${deletions[@]}" >> $OUTPUT_FILE
 fi
-
-#[[ $GIT_LOG = feat:* ]] && echo '### Features' >> $OUTPUT_FILE 
-#git log --pretty="- %s (%h)" $(git tag --sort=-taggerdate | head -2)...$(git tag --sort=-taggerdate | head -1) >> $OUTPUT_FILE
