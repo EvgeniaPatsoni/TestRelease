@@ -22,3 +22,25 @@ fix: aaaaa aaaaaaaaa aaaaaaaa-aaaaaa! aeff (54ec24b)
 ### Deletions
 delete: sslglsg s;jdgskjg (9ee454d)
 
+## RELEASE - version 0.0.7
+### Features
+feat: test feat 1 kjjfksjfljsldfjslfj,xmn lsglshgisdns dmnshgg sglshgshd -14734623749799$%^& (9f1d20f)
+
+feat: test feat 2 (aabf5eb)
+
+### Fixes
+fix: fixed script (150c6e5)
+
+fix: test fix 1 (35d87aa)
+
+fix: test fix 2 (09cca8f)
+
+fix: test fix 3 (6310bae)
+
+fix: test fix 4 lsdfljshf ,ksjhdfg s 11231347987 lkvsldf lk.dsfklsjg (66a49ef)
+
+### Deletions
+delete: test deletion 1 (a4e418f)
+
+delete: test deletion 2 (77ed54d)
+
