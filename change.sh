@@ -44,19 +44,34 @@ if [ ${#features[@]} -eq 0 ]; then
   echo ""
 else
   echo '### Features' >> $OUTPUT_FILE
-  echo "${features[@]}" >> $OUTPUT_FILE
+  for i in "${features[@]}"
+  do
+     echo "$i" >> $OUTPUT_FILE
+     # or do whatever with individual element of the array
+  done
+  #echo "${features[@]}" >> $OUTPUT_FILE
 fi
 
 if [ ${#fixes[@]} -eq 0 ]; then
   echo ""
 else
   echo '### Fixes' >> $OUTPUT_FILE
-  echo "${fixes[@]}" >> $OUTPUT_FILE
+  for i in "${fixes[@]}"
+  do
+     echo "$i" >> $OUTPUT_FILE
+     # or do whatever with individual element of the array
+  done  
+  #echo "${fixes[@]}" >> $OUTPUT_FILE
 fi
 
 if [ ${#deletions[@]} -eq 0 ]; then
   echo ""
 else
   echo '### Deletions' >> $OUTPUT_FILE
-  echo "${deletions[@]}" >> $OUTPUT_FILE
+  for i in "${deletions[@]}"
+  do
+     echo "$i" >> $OUTPUT_FILE
+     # or do whatever with individual element of the array
+  done   
+  #echo "${deletions[@]}" >> $OUTPUT_FILE
 fi
