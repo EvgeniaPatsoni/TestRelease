@@ -1,0 +1,20 @@
+# The pipeline tasks are executed into a Docker container
+# using eddevopsd2/npm-dind-chromium:1.0.1.
+
+#Replace authToken with the predefined GitLabCI variable ${CI_JOB_TOKEN}
+
+#The build and package stages are defined in this pipeline script.
+
+# Activities on the int-quality branch, i.e. pushes by EUROPEAN DYNAMICS,
+# will only trigger the build stage. This task downloads the dependencies
+# of the project and builds the Angular application.
+
+# The test stage executes the UI tests of the application.
+# As a result, the index.html report of the executed tests is being archived
+# which can be later downloaded as a zip file.
+
+
+# Tags on any branch will trigger the package task. This task downloads the dependencies
+# of the project and builds the Angular application.
+# As a result, the generated dist folder of the application, which contains
+# the application files, is being archived which can be later downloaded and used for deployments.
