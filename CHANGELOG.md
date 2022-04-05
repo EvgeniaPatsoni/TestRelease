@@ -64,3 +64,13 @@
 ### Deletions
 - delete: dummy delete 1 (847dec8)
 
+## RELEASE 1.0.3 - 2022-04-05
+### Features
+- feat: dummy feat 1 (e07253b)
+
+- feat: dummy feat 23 (9debc2d)
+### Fixes
+- fix: dummy fix 1 (0665288)
+
+- fix: dummy fix 2 (4b2733e)
+
