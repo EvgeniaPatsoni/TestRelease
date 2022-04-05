@@ -4,11 +4,10 @@ set -eu
 # destination of the final changelog file
 OUTPUT_FILE=CHANGE.md
 TAG=`git tag --sort=taggerdate | tail -1`
+DATE=`git log -1 --format=%ci | awk '{print $1; }'`
 
 # print Changelog in the output file
-echo "## RELEASE - version ${TAG}" >> $OUTPUT_FILE
-# find and print the current tag version in the output file
-#git tag --sort=taggerdate | tail -1 >> $OUTPUT_FILE
+echo "## RELEASE ${TAG} - ${DATE}" >> $OUTPUT_FILE
 
 # generate the changelog
 GIT_LOG=`git log --reverse --pretty="*%s (%h)" $(git tag --sort=-taggerdate | head -2)...$(git tag --sort=-taggerdate | head -1)`
@@ -40,7 +39,7 @@ else
   echo '### Features' >> $OUTPUT_FILE
   for i in "${features[@]}"
   do
-    echo "$i" >> $OUTPUT_FILE
+    echo "- $i" >> $OUTPUT_FILE
   done
 fi
 
@@ -50,7 +49,7 @@ else
   echo '### Fixes' >> $OUTPUT_FILE
   for i in "${fixes[@]}"
   do
-    echo "$i" >> $OUTPUT_FILE
+    echo "- $i" >> $OUTPUT_FILE
   done  
 fi
 
@@ -60,6 +59,6 @@ else
   echo '### Deletions' >> $OUTPUT_FILE
   for i in "${deletions[@]}"
   do
-    echo "$i" >> $OUTPUT_FILE
+    echo "- $i" >> $OUTPUT_FILE
   done   
 fi
