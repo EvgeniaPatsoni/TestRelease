@@ -43,7 +43,7 @@ pipeline {
                         git checkout 0.0.8
                         cd ../..
 
-                        cp -R test-release/TestReleaset/. temp/
+                        cp -R test-release/TestRelease/. temp/
                         rm -rf temp/.git temp/.gitignore temp/Jenkinsfile temp/docs/ed temp/sonar-project.properties
                         cp -R temp/. test-remote/
                           
