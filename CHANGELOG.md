@@ -31,3 +31,24 @@ fix: test fix 4 lsdfljshf ,ksjhdfg s 11231347987 lkvsldf lk.dsfklsjg (66a49ef)
 delete: test deletion 1 (a4e418f)
 
 delete: test deletion 2 (77ed54d)
+
+## RELEASE 1.0.1 - 2022-04-05
+### Features
+- feat: dummy feat 1 (038ebba)
+
+- feat: dummy feat 2 (b6a4d4c)
+
+- feat: dummy feat 3 (6a7d12a)
+
+- feat: dummy feat 4 (978d853)
+
+### Fixes
+- fix: change name of changelog file (57e54e4)
+
+- fix: dummy fix 1 (a65dba8)
+
+- fix: dummy fix 2 (14ecb2f)
+
+### Deletions
+- delete: dummy delete 1 (ab438b0)
+
