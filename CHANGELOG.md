@@ -52,3 +52,15 @@
 ### Deletions
 - delete: dummy delete 1 (ab438b0)
 
+## RELEASE 1.0.2 - 2022-04-05
+### Features
+- feat: dummy feat 1 (532db6a)
+
+### Fixes
+- fix: dummy fix 1 (2057ce6)
+
+- fix: dummy fix 2 (ed3af1e)
+
+### Deletions
+- delete: dummy delete 1 (847dec8)
+
