@@ -2,7 +2,7 @@
 set -eu
 
 # destination of the final changelog file
-OUTPUT_FILE=CHANGE.md
+OUTPUT_FILE=CHANGELOG.md
 TAG=`git tag --sort=taggerdate | tail -1`
 DATE=`git log -1 --format=%ci | awk '{print $1; }'`
 
