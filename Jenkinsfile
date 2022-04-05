@@ -40,7 +40,7 @@ pipeline {
                         mkdir temp
 
                         cd test-release/TestRelease
-                        git checkout 0.0.8
+                        git checkout 1.0.0
                         cd ../..
 
                         cp -R test-release/TestRelease/. temp/
@@ -55,7 +55,7 @@ pipeline {
  
                         git add .
                         git status
-                        git commit -m "v 0.0.8 delivery"
+                        git commit -m "v 1.0.0 delivery"
                         git push -u https://$Username:$Password@gitlab.com/EvgeniaPatsoni/test-remote.git -o merge_request.create HEAD:development
                     '''
                 }
