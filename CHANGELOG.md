@@ -90,3 +90,25 @@
 ### Deletions
 - delete: dummy delete 45 (5aa8a0d)
 
+## RELEASE 1.0.5 - 2022-04-05
+### Features
+- feat: dummy feat 1 (e07253b)
+
+- feat: dummy feat 23 (9debc2d)
+
+- feat: eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee (37e3f36)
+
+- feat: ffffffffffffffffffffffffffff (d93d853)
+
+### Fixes
+- fix: dummy fix 1 (0665288)
+
+- fix: dummy fix 2 (4b2733e)
+
+- fix: dummy fix 1 (422b1e4)
+
+- fix: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa (dff614d)
+
+### Deletions
+- delete: dummy delete 45 (5aa8a0d)
+
