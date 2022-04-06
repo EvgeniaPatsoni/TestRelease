@@ -149,3 +149,19 @@
 
 - fix: this is a fix 2 (63f9fed)
 
+## RELEASE 1.0.8 - 2022-04-06
+### Features
+- feat: this is a feature (8606b80)
+
+### Fixes
+- fix: this is a fix (7a821b0)
+
+- fix: this is a fix 2 (63f9fed)
+
+### Deletions
+- delete: delete 1 (874c5d8)
+
+- delete: delete 2 (d6fb419)
+
+- delete: delete 3 (08551d8)
+
