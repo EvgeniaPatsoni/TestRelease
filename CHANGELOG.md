@@ -112,3 +112,31 @@
 ### Deletions
 - delete: dummy delete 45 (5aa8a0d)
 
+## RELEASE 1.0.6 - 2022-04-06
+### Features
+- feat: dummy feat 1 (e07253b)
+
+- feat: dummy feat 23 (9debc2d)
+
+- feat: eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee (37e3f36)
+
+- feat: ffffffffffffffffffffffffffff (d93d853)
+
+- feat: this is a feature (c1a43fa)
+
+### Fixes
+- fix: dummy fix 1 (0665288)
+
+- fix: dummy fix 2 (4b2733e)
+
+- fix: dummy fix 1 (422b1e4)
+
+- fix: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa (dff614d)
+
+- fix: this is a fix (a8e4563)
+
+### Deletions
+- delete: dummy delete 45 (5aa8a0d)
+
+- delete: unwanted file (4f98b0f)
+
