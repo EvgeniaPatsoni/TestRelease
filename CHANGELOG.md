@@ -182,3 +182,12 @@
 ### Deletions
 - delete: delete (185b310)
 
+## RELEASE 1.0.11 - 2022-04-06
+### Features
+- feat: abc (e4aabb1)
+
+- feat: 123 (11cfd76)
+
+### Fixes
+- fix: abc (89d881c)
+
