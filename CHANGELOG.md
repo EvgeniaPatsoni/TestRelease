@@ -1,3 +1,14 @@
+## RELEASE 1.0.13 - 2022-04-06
+### Features
+- feat: some new features (acfaa7e)
+
+- feat: some more features (2e830ea)
+
+### Fixes
+- fix: some fix here and there (9358510)
+
+- fix: updates in script (11172c2)
+
 ## RELEASE 1.0.12 - 2022-04-06
 ### Fixes
 - fix: some fix (19049f0)
