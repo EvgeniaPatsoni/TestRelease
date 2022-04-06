@@ -175,3 +175,10 @@
 ### Deletions
 - delete: delete (c95c97b)
 
+## RELEASE 1.0.10 - 2022-04-06
+### Fixes
+- fix: fix (264d15a)
+
+### Deletions
+- delete: delete (185b310)
+
