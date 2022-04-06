@@ -1,20 +1,20 @@
-## RELEASE 1.0.13 - 2022-04-06
-### Features
+## **RELEASE 1.0.13 - 2022-04-06**
+### :sparkles: Features
 - feat: some new features (acfaa7e)
 
 - feat: some more features (2e830ea)
 
-### Fixes
+### :hammer: Fixes 
 - fix: some fix here and there (9358510)
 
 - fix: updates in script (11172c2)
 
 
-## RELEASE 1.0.12 - 2022-04-06
-### Fixes
+## **RELEASE 1.0.12 - 2022-04-06**
+### :hammer: Fixes
 - fix: some fix (19049f0)
 
-### Deletions
+### :heavy_multiplication_x: Deletions
 - delete: file deletion (c6dc118)
 
 
