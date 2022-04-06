@@ -186,7 +186,7 @@ else
   done   
 fi
 
-# Print the contents of TEMP_FILE and OUTPUT_FILE inside a third tmp folder and then move tmp file to the final OUTPUT_FILE.
+# Print the contents of TEMP_FILE and OUTPUT_FILE inside a third tmp file and then move tmp file to the final OUTPUT_FILE.
 # This way, the latest changelog updates will be appended at the begging of the file and not at the end.
 cat $TEMP_FILE $OUTPUT_FILE > tmp && mv tmp $OUTPUT_FILE
 
