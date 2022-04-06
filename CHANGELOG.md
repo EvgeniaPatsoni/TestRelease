@@ -165,3 +165,13 @@
 
 - delete: delete 3 (08551d8)
 
+## RELEASE 1.0.9 - 2022-04-06
+### Features
+- feat: feat (3034d1f)
+
+### Fixes
+- fix: fix (ccba90b)
+
+### Deletions
+- delete: delete (c95c97b)
+
