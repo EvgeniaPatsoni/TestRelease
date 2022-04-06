@@ -4,6 +4,13 @@ set -eu
 # Define OUTPUT_FILE variable as CHANGELOG.md, which is the final changelog file.
 OUTPUT_FILE=CHANGELOG.md
 
+# If a CHANGELOG.md file is not present in the current directory, then it creates an empty one.
+if [ ! -f $OUTPUT_FILE ] 
+then
+  touch $OUTPUT_FILE
+  echo "Created CHANGELOG.md"
+fi
+
 # Define TEMP_FILE variable as TEMP.md.
 # This will be used as a temporary file that will hold only the latest changelog updates, in order to paste them at the beginning of the existing CHANGELOG.md file.
 TEMP_FILE=TEMP.md
@@ -18,7 +25,7 @@ DATE=`git log -1 --format=%ci | awk '{print $1; }'`
 echo "# RELEASE ${TAG} - ${DATE}" >> $TEMP_FILE
 
 # Retrieve the commits that occured between the latest tag and the previous one in chronological order, and store them in GIT_LOG variable. 
-# Commits are separated using the * character
+# Commits are separated using the * character.
 GIT_LOG=`git log --reverse --pretty="*%s (%h)" $(git tag --sort=-taggerdate | head -2)...$(git tag --sort=-taggerdate | head -1)`
 
 # Define arrays that will be filled with each commit category.
@@ -71,8 +78,9 @@ for i in "${commits[@]}"; do
 done
 
 # Parse each array and print their contents (commit messages) under the corresponding category (e.g. Fixes, Features, etc.) in the temporary changelog file. 
+# If no commits occured for a specific category, then it prints nothing.
 if [ ${#feature[@]} -eq 0 ]; then
-  echo ""
+  :
 else
   echo '### ✨ Features' >> $TEMP_FILE
   for i in "${feature[@]}"
@@ -82,7 +90,7 @@ else
 fi
 
 if [ ${#fix[@]} -eq 0 ]; then
-  echo ""
+  :
 else
   echo '### 🐛 Fixes' >> $TEMP_FILE
   for i in "${fix[@]}"
@@ -92,7 +100,7 @@ else
 fi
 
 if [ ${#build[@]} -eq 0 ]; then
-  echo ""
+  :
 else
   echo '### 🛠 Builds' >> $TEMP_FILE
   for i in "${build[@]}"
@@ -102,7 +110,7 @@ else
 fi
 
 if [ ${#chore[@]} -eq 0 ]; then
-  echo ""
+  :
 else
   echo '### ♻️ Chores' >> $TEMP_FILE
   for i in "${chore[@]}"
@@ -112,7 +120,7 @@ else
 fi
 
 if [ ${#ci[@]} -eq 0 ]; then
-  echo ""
+  :
 else
   echo '### ⚙️ Continuous Integrations' >> $TEMP_FILE
   for i in "${ci[@]}"
@@ -122,7 +130,7 @@ else
 fi
 
 if [ ${#doc[@]} -eq 0 ]; then
-  echo ""
+  :
 else
   echo '### 📚 Documentation' >> $TEMP_FILE
   for i in "${doc[@]}"
@@ -132,7 +140,7 @@ else
 fi
 
 if [ ${#style[@]} -eq 0 ]; then
-  echo ""
+  :
 else
   echo '### 💎 Styles' >> $TEMP_FILE
   for i in "${style[@]}"
@@ -142,7 +150,7 @@ else
 fi
 
 if [ ${#refactor[@]} -eq 0 ]; then
-  echo ""
+  :
 else
   echo '### 📦 Code Refactoring' >> $TEMP_FILE
   for i in "${refactor[@]}"
@@ -152,7 +160,7 @@ else
 fi
 
 if [ ${#perf[@]} -eq 0 ]; then
-  echo ""
+  :
 else
   echo '### 🚀 Performance Improvements' >> $TEMP_FILE
   for i in "${perf[@]}"
@@ -162,7 +170,7 @@ else
 fi
 
 if [ ${#test[@]} -eq 0 ]; then
-  echo ""
+  :
 else
   echo '### 🚨 Tests' >> $TEMP_FILE
   for i in "${test[@]}"
