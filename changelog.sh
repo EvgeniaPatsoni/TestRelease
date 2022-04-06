@@ -13,7 +13,6 @@ echo "## RELEASE ${TAG} - ${DATE}" >> $TEMP_FILE
 
 # generate the changelog
 GIT_LOG=`git log --reverse --pretty="*%s (%h)" $(git tag --sort=-taggerdate | head -2)...$(git tag --sort=-taggerdate | head -1)`
-echo $GIT_LOG
 
 features=()
 fixes=()
@@ -66,4 +65,4 @@ else
 fi
 
 cat $TEMP_FILE $OUTPUT_FILE > tmp && mv tmp $OUTPUT_FILE
-rm tmp $TEMP_FILE
+rm $TEMP_FILE
