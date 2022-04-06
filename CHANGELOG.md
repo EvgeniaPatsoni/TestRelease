@@ -1,3 +1,10 @@
+## RELEASE 1.0.12 - 2022-04-06
+### Fixes
+- fix: some fix (19049f0)
+
+### Deletions
+- delete: file deletion (c6dc118)
+
 ## RELEASE 0.0.6 - 2022-04-01
 ### Features
 - feat: lfdgdfhgldgdghdkhg lghdjlghldg (02be065)
