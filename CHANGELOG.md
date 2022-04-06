@@ -1,3 +1,22 @@
+# RELEASE 1.0.15 - 2022-04-06
+### ✨ Features
+- feat: a feat (f3c7a5c)
+
+### 🐛 Fixes
+- fix: a fix (6569a0d)
+
+### 📚 Documentation
+- doc: a doc (c076ee6)
+
+### 💎 Styles
+- style: a style (ee78a81)
+
+### 📦 Code Refactoring
+- refactor: changes in script (2ca3d5a)
+
+### 🚨 Tests
+- test: a test (cad65f2)
+
 # RELEASE 1.0.13 - 2022-04-06
 ### :sparkles: Features
 - feat: some new features (acfaa7e)

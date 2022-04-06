@@ -73,21 +73,21 @@ for i in "${commits[@]}"; do
 done
 
 # Parse each array and print their contents (commit messages) under the corresponding category (e.g. Fixes, Features, etc.) in the temporary changelog file. 
-if [ ${#features[@]} -eq 0 ]; then
+if [ ${#feature[@]} -eq 0 ]; then
   echo ""
 else
   echo '### ✨ Features' >> $TEMP_FILE
-  for i in "${features[@]}"
+  for i in "${feature[@]}"
   do
     echo "- $i" >> $TEMP_FILE
   done
 fi
 
-if [ ${#fixes[@]} -eq 0 ]; then
+if [ ${#fix[@]} -eq 0 ]; then
   echo ""
 else
   echo '### 🐛 Fixes' >> $TEMP_FILE
-  for i in "${fixes[@]}"
+  for i in "${fix[@]}"
   do
     echo "- $i" >> $TEMP_FILE
   done  
