@@ -8,8 +8,6 @@ OUTPUT_FILE=CHANGELOG.md
 # This will be used as a temporary file that will hold only the latest changelog updates, in order to paste them at the beginning of the existing CHANGELOG.md file.
 TEMP_FILE=TEMP.md
 
-#touch TEMP.md
-
 # Retrieve the last git tag and store it in TAG variable.
 TAG=`git tag --sort=taggerdate | tail -1`
 
