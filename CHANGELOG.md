@@ -18,13 +18,6 @@
 - delete: file deletion (c6dc118)
 
 
-## RELEASE 1.0.10 - 2022-04-06
-### Fixes
-- fix: fix (264d15a)
-
-### Deletions
-- delete: delete (185b310)
-
 ## RELEASE 1.0.11 - 2022-04-06
 ### Features
 - feat: abc (e4aabb1)
@@ -33,6 +26,14 @@
 
 ### Fixes
 - fix: abc (89d881c)
+
+
+## RELEASE 1.0.10 - 2022-04-06
+### Fixes
+- fix: fix (264d15a)
+
+### Deletions
+- delete: delete (185b310)
 
 
 ## RELEASE 1.0.9 - 2022-04-06
