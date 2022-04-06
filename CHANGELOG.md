@@ -1,4 +1,4 @@
-## **RELEASE 1.0.13 - 2022-04-06**
+# RELEASE 1.0.13 - 2022-04-06
 ### :sparkles: Features
 - feat: some new features (acfaa7e)
 
