@@ -140,3 +140,12 @@
 
 - delete: unwanted file (4f98b0f)
 
+## RELEASE 1.0.7 - 2022-04-06
+### Features
+- feat: this is a feature (8606b80)
+
+### Fixes
+- fix: this is a fix (7a821b0)
+
+- fix: this is a fix 2 (63f9fed)
+
