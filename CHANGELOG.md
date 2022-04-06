@@ -10,7 +10,7 @@
 - fix: updates in script (11172c2)
 
 
-## **RELEASE 1.0.12 - 2022-04-06**
+# RELEASE 1.0.12 - 2022-04-06
 ### :hammer: Fixes
 - fix: some fix (19049f0)
 
