@@ -1,7 +1,7 @@
 # [RELEASE 1.0.15](https://github.com/EvgeniaPatsoni/TestRelease/compare/1.0.15...1.0.13) - 2022-04-07
 ### ✨ Features
 - [feat: a feat (f3c7a5c)
-](https://github.com/EvgeniaPatsoni/TestRelease/f3c7a5c4b6aaa332e3e90bae0a2da89e12139f09)
+](https://github.com/EvgeniaPatsoni/TestRelease/commit/f3c7a5c4b6aaa332e3e90bae0a2da89e12139f09)
 ### 🐛 Fixes
 - fix: a fix (6569a0d)
 
