@@ -1,3 +1,22 @@
+# [RELEASE 1.0.15](https://github.com/EvgeniaPatsoni/TestRelease/compare/1.0.15...1.0.13) - 2022-04-07
+### ✨ Features
+- [feat: a feat (f3c7a5c)
+](https://github.com/EvgeniaPatsoni/TestRelease/f3c7a5c4b6aaa332e3e90bae0a2da89e12139f09)
+### 🐛 Fixes
+- fix: a fix (6569a0d)
+
+### 📚 Documentation
+- doc: a doc (c076ee6)
+
+### 💎 Styles
+- style: a style (ee78a81)
+
+### 📦 Code Refactoring
+- refactor: changes in script (2ca3d5a)
+
+### 🚨 Tests
+- test: a test (cad65f2)
+
 # [RELEASE 1.0.15](https://github.com/EvgeniaPatsoni/TestRelease/compare/1.0.15...1.0.13) - 2022-04-06
 ### ✨ Features
 - feat: a feat (f3c7a5c)

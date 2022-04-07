@@ -119,7 +119,8 @@ else
   echo '### ✨ Features' >> $TEMP_FILE
   for i in "${feature[@]}"
   do
-    echo "- $i" >> $TEMP_FILE
+    LINK=$URL/$(git rev-parse $(echo $i | cut -d "(" -f2 | cut -d ")" -f1))
+    echo "- [$i]($LINK)" >> $TEMP_FILE
   done
 fi
 
