@@ -15,6 +15,33 @@ fi
 # This will be used as a temporary file that will hold only the latest changelog updates, in order to paste them at the beginning of the existing CHANGELOG.md file.
 TEMP_FILE=TEMP.md
 
+TYPE=$(git ls-remote --get-url)
+
+if [[ "$TYPE" =~ .*"git.eurodyn.com".* ]];
+then
+  TAG1=`git tag --sort=taggerdate | tail -1`
+  TAG2_2=`git tag --sort=taggerdate | tail -2`
+  TAG2=`echo $TAG2_2 | cut -d' ' -f1`
+
+  URL_REMOTE=`git config --get remote.origin.url`
+  URL_GIT_ENDING=${URL_REMOTE::-4}
+  URL_CREDENTIALS=$(echo "$URL_GIT_ENDING" | sed -e 's/\(:\/\/\).*\(@\)/\1\2/')
+  URL=`echo "${URL_CREDENTIALS//@}"`
+  REPLACE=`echo "$URL" | sed -r 's|/r/+|/compare/|g'`
+  CONCAT="$REPLACE/$TAG1..$TAG2"
+elif [[ "$TYPE" =~ .*"github.com".* ]];
+then
+  TAG1=`git tag --sort=taggerdate | tail -1`
+  TAG2_2=`git tag --sort=taggerdate | tail -2`
+  TAG2=`echo $TAG2_2 | cut -d' ' -f1`
+
+  URL_REMOTE=`git config --get remote.origin.url`
+  URL_GIT_ENDING=${URL_REMOTE::-4}
+  URL_CREDENTIALS=$(echo "$URL_GIT_ENDING" | sed -e 's/\(:\/\/\).*\(@\)/\1\2/')
+  URL=`echo "${URL_CREDENTIALS//@}"`   
+  CONCAT="$URL/compare/$TAG1...$TAG2"
+fi
+
 # Retrieve the last git tag and store it in TAG variable.
 TAG=`git tag --sort=taggerdate | tail -1`
 
@@ -22,7 +49,7 @@ TAG=`git tag --sort=taggerdate | tail -1`
 DATE=`git log -1 --format=%ci | awk '{print $1; }'`
 
 # Print the release version along with its date as a heading, in the temporary changelog file.
-echo "# RELEASE ${TAG} - ${DATE}" >> $TEMP_FILE
+echo "# [RELEASE ${TAG}]($CONCAT) - ${DATE}" >> $TEMP_FILE
 
 # Retrieve the commits that occured between the latest tag and the previous one in chronological order, and store them in GIT_LOG variable. 
 # Commits are separated using the * character.
