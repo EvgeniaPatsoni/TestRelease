@@ -15,31 +15,37 @@ fi
 # This will be used as a temporary file that will hold only the latest changelog updates, in order to paste them at the beginning of the existing CHANGELOG.md file.
 TEMP_FILE=TEMP.md
 
-TYPE=$(git ls-remote --get-url)
+# Get the url of the git repository and save it to REPO_TYPE variable in order to use it for configuring the type of the git repository (e.g. Gitblit, GitHub, etc.)
+REPO_TYPE=$(git ls-remote --get-url)
 
-if [[ "$TYPE" =~ .*"git.eurodyn.com".* ]];
+# Check if the git repository is in Gitblit or in GitHub
+if [[ "$REPO_TYPE" =~ .*"git.eurodyn.com".* ]];
 then
-  TAG1=`git tag --sort=taggerdate | tail -1`
-  TAG2_2=`git tag --sort=taggerdate | tail -2`
-  TAG2=`echo $TAG2_2 | cut -d' ' -f1`
+  TAG1=`git tag --sort=taggerdate | tail -1` # Get the latest git tag version number
+  TAG2_2=`git tag --sort=taggerdate | tail -2` # Get the last two tag version numbers
+  TAG2=`echo $TAG2_2 | cut -d' ' -f1` # Keep only the antecedent git tag version number
 
-  URL_REMOTE=`git config --get remote.origin.url`
-  URL_GIT_ENDING=${URL_REMOTE::-4}
-  URL_CREDENTIALS=$(echo "$URL_GIT_ENDING" | sed -e 's/\(:\/\/\).*\(@\)/\1\2/')
-  URL=`echo "${URL_CREDENTIALS//@}"`
-  REPLACE=`echo "$URL" | sed -r 's|/r/+|/compare/|g'`
-  CONCAT="$REPLACE/$TAG1..$TAG2"
-elif [[ "$TYPE" =~ .*"github.com".* ]];
+  URL_REMOTE=`git config --get remote.origin.url` # Get the url of the remote git repository and save it to URL_REMOTE variable
+  URL_GIT_ENDING=${URL_REMOTE::-4} # Trim the last 4 characters (i.e. '.git') of the remote url 
+  URL_CREDENTIALS=$(echo "$URL_GIT_ENDING" | sed -e 's/\(:\/\/\).*\(@\)/\1\2/') # Trim the user's credentials from the remote url
+  URL=`echo "${URL_CREDENTIALS//@}"` # Trim the '@' character and finally save the 'clean' url to URL variable
+  COMPARE_URL=`echo "$URL" | sed -r 's|/r/+|/compare/|g'` # Replace '/r/' with '/compare/' and save to COMPARE_URL variable. This url will be used in order to compare the differences between the last two tags.
+  CONCAT_URL="$COMPARE_URL/$TAG1..$TAG2" # Concat '/' character and the two last tag version numbers to COMPARE_URL variable, in order to get the hyperlink that displays the comparison of these two tags.
+  COMMIT_URL=`echo "$URL" | sed -r 's|/r/+|/commit/|g'` # Replace '/r/' with '/commit/' and save to COMMIT_URL variable. This url will be used in order to create a hyperlink to a specific commit in gitblit.
+
+elif [[ "$REPO_TYPE" =~ .*"github.com".* ]];
 then
-  TAG1=`git tag --sort=taggerdate | tail -1`
-  TAG2_2=`git tag --sort=taggerdate | tail -2`
-  TAG2=`echo $TAG2_2 | cut -d' ' -f1`
+  TAG1=`git tag --sort=taggerdate | tail -1` # Get the latest git tag version number
+  TAG2_2=`git tag --sort=taggerdate | tail -2` # Get the last two tag version numbers
+  TAG2=`echo $TAG2_2 | cut -d' ' -f1` # Keep only the antecedent git tag version number
 
-  URL_REMOTE=`git config --get remote.origin.url`
-  URL_GIT_ENDING=${URL_REMOTE::-4}
-  URL_CREDENTIALS=$(echo "$URL_GIT_ENDING" | sed -e 's/\(:\/\/\).*\(@\)/\1\2/')
-  URL=`echo "${URL_CREDENTIALS//@}"`   
-  CONCAT="$URL/compare/$TAG1...$TAG2"
+  URL_REMOTE=`git config --get remote.origin.url` # Get the url of the remote git repository and save it to URL_REMOTE variable
+  URL_GIT_ENDING=${URL_REMOTE::-4} # Trim the last 4 characters (i.e. '.git') of the remote url
+  URL_CREDENTIALS=$(echo "$URL_GIT_ENDING" | sed -e 's/\(:\/\/\).*\(@\)/\1\2/') # Trim the user's credentials from the remote url
+  URL=`echo "${URL_CREDENTIALS//@}"` # Trim the '@' character and finally save the 'clean' url to URL variable  
+  CONCAT_URL="$URL/compare/$TAG1...$TAG2"  # Concat '/' character and the two last tag version numbers to COMPARE_URL variable, in order to get the hyperlink that displays the comparison of these two tags.
+  COMMIT_URL="$URL/commit" # Concat '/commit' to CONCAT_URL variable. This url will be used in order to create a hyperlink to a specific commit in github.
+
 fi
 
 # Retrieve the last git tag and store it in TAG variable.
@@ -49,7 +55,7 @@ TAG=`git tag --sort=taggerdate | tail -1`
 DATE=`git log -1 --format=%ci | awk '{print $1; }'`
 
 # Print the release version along with its date as a heading, in the temporary changelog file.
-echo "# [RELEASE ${TAG}]($CONCAT) - ${DATE}" >> $TEMP_FILE
+echo "# [RELEASE ${TAG}]($CONCAT_URL) - ${DATE}" >> $TEMP_FILE
 
 # Retrieve the commits that occured between the latest tag and the previous one in chronological order, and store them in GIT_LOG variable. 
 # Commits are separated using the * character.
@@ -119,7 +125,7 @@ else
   echo '### ✨ Features' >> $TEMP_FILE
   for i in "${feature[@]}"
   do
-    LINK=$URL/commit/$(git rev-parse $(echo $i | cut -d "(" -f2 | cut -d ")" -f1))
+    LINK=$COMMIT_URL/$(git rev-parse $(echo $i | cut -d "(" -f2 | cut -d ")" -f1))
     echo "- [$i]($LINK)" >> $TEMP_FILE
   done
 fi
@@ -130,7 +136,8 @@ else
   echo '### 🐛 Fixes' >> $TEMP_FILE
   for i in "${fix[@]}"
   do
-    echo "- $i" >> $TEMP_FILE
+    LINK=$COMMIT_URL/$(git rev-parse $(echo $i | cut -d "(" -f2 | cut -d ")" -f1))
+    echo "- [$i]($LINK)" >> $TEMP_FILE
   done  
 fi
 
@@ -140,7 +147,8 @@ else
   echo '### 🛠 Builds' >> $TEMP_FILE
   for i in "${build[@]}"
   do
-    echo "- $i" >> $TEMP_FILE
+    LINK=$COMMIT_URL/$(git rev-parse $(echo $i | cut -d "(" -f2 | cut -d ")" -f1))
+    echo "- [$i]($LINK)" >> $TEMP_FILE
   done   
 fi
 
@@ -150,7 +158,8 @@ else
   echo '### ♻️ Chores' >> $TEMP_FILE
   for i in "${chore[@]}"
   do
-    echo "- $i" >> $TEMP_FILE
+    LINK=$COMMIT_URL/$(git rev-parse $(echo $i | cut -d "(" -f2 | cut -d ")" -f1))
+    echo "- [$i]($LINK)" >> $TEMP_FILE
   done   
 fi
 
@@ -160,7 +169,8 @@ else
   echo '### ⚙️ Continuous Integrations' >> $TEMP_FILE
   for i in "${ci[@]}"
   do
-    echo "- $i" >> $TEMP_FILE
+    LINK=$COMMIT_URL/$(git rev-parse $(echo $i | cut -d "(" -f2 | cut -d ")" -f1))
+    echo "- [$i]($LINK)" >> $TEMP_FILE
   done   
 fi
 
@@ -170,7 +180,8 @@ else
   echo '### 📚 Documentation' >> $TEMP_FILE
   for i in "${doc[@]}"
   do
-    echo "- $i" >> $TEMP_FILE
+    LINK=$COMMIT_URL/$(git rev-parse $(echo $i | cut -d "(" -f2 | cut -d ")" -f1))
+    echo "- [$i]($LINK)" >> $TEMP_FILE
   done   
 fi
 
@@ -180,7 +191,8 @@ else
   echo '### 💎 Styles' >> $TEMP_FILE
   for i in "${style[@]}"
   do
-    echo "- $i" >> $TEMP_FILE
+    LINK=$COMMIT_URL/$(git rev-parse $(echo $i | cut -d "(" -f2 | cut -d ")" -f1))
+    echo "- [$i]($LINK)" >> $TEMP_FILE
   done   
 fi
 
@@ -190,7 +202,8 @@ else
   echo '### 📦 Code Refactoring' >> $TEMP_FILE
   for i in "${refactor[@]}"
   do
-    echo "- $i" >> $TEMP_FILE
+    LINK=$COMMIT_URL/$(git rev-parse $(echo $i | cut -d "(" -f2 | cut -d ")" -f1))
+    echo "- [$i]($LINK)" >> $TEMP_FILE
   done   
 fi
 
@@ -200,7 +213,8 @@ else
   echo '### 🚀 Performance Improvements' >> $TEMP_FILE
   for i in "${perf[@]}"
   do
-    echo "- $i" >> $TEMP_FILE
+    LINK=$COMMIT_URL/$(git rev-parse $(echo $i | cut -d "(" -f2 | cut -d ")" -f1))
+    echo "- [$i]($LINK)" >> $TEMP_FILE
   done   
 fi
 
@@ -210,7 +224,8 @@ else
   echo '### 🚨 Tests' >> $TEMP_FILE
   for i in "${test[@]}"
   do
-    echo "- $i" >> $TEMP_FILE
+    LINK=$COMMIT_URL/$(git rev-parse $(echo $i | cut -d "(" -f2 | cut -d ")" -f1))
+    echo "- [$i]($LINK)" >> $TEMP_FILE
   done   
 fi
 

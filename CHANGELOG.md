@@ -5,6 +5,30 @@
 - [feat: new features (bb875d3)
 ](https://github.com/EvgeniaPatsoni/TestRelease/commit/bb875d3167bcf7ad6171d97fbdf52594038d66b2)
 ### 🐛 Fixes
+- [fix: fix (58efcc5)
+](https://github.com/EvgeniaPatsoni/TestRelease/commit/58efcc567beca756637be7d3add1823546208ab3)
+### ♻️ Chores
+- [chore: delete files (7c39a2d)
+](https://github.com/EvgeniaPatsoni/TestRelease/commit/7c39a2d80e84766192d9e8fd40723f9ec564f1e2)
+# [RELEASE 0.0.16](https://github.com/EvgeniaPatsoni/TestRelease/compare/0.0.16...1.0.15) - 2022-04-07
+### ✨ Features
+- [feat: new features (bfd9d7d)
+](https://github.com/EvgeniaPatsoni/TestRelease/commit/bfd9d7ded3be1f7ca599efec4778d639195560f5)
+- [feat: new features (bb875d3)
+](https://github.com/EvgeniaPatsoni/TestRelease/commit/bb875d3167bcf7ad6171d97fbdf52594038d66b2)
+### 🐛 Fixes
+- fix: fix (58efcc5)
+
+### ♻️ Chores
+- chore: delete files (7c39a2d)
+
+# [RELEASE 0.0.16](https://github.com/EvgeniaPatsoni/TestRelease/compare/0.0.16...1.0.15) - 2022-04-07
+### ✨ Features
+- [feat: new features (bfd9d7d)
+](https://github.com/EvgeniaPatsoni/TestRelease/commit/bfd9d7ded3be1f7ca599efec4778d639195560f5)
+- [feat: new features (bb875d3)
+](https://github.com/EvgeniaPatsoni/TestRelease/commit/bb875d3167bcf7ad6171d97fbdf52594038d66b2)
+### 🐛 Fixes
 - fix: fix (58efcc5)
 
 ### ♻️ Chores
