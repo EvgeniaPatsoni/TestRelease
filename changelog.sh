@@ -21,9 +21,8 @@ REPO_TYPE=$(git ls-remote --get-url)
 # Check if the git repository is in Gitblit or in GitHub
 if [[ "$REPO_TYPE" =~ .*"git.eurodyn.com".* ]];
 then
-  TAG1=`git tag --sort=taggerdate | tail -1` # Get the latest git tag version number
-  TAG2_2=`git tag --sort=taggerdate | tail -2` # Get the last two tag version numbers
-  TAG2=`echo $TAG2_2 | cut -d' ' -f1` # Keep only the antecedent git tag version number
+  TAG1=`git describe --abbrev=0 --tags` # Get the latest git tag version number
+  TAG2=`git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1)` # Get the previous tag version number
 
   URL_REMOTE=`git config --get remote.origin.url` # Get the url of the remote git repository and save it to URL_REMOTE variable
   URL_GIT_ENDING=${URL_REMOTE::-4} # Trim the last 4 characters (i.e. '.git') of the remote url 
@@ -49,7 +48,7 @@ then
 fi
 
 # Retrieve the last git tag and store it in TAG variable.
-TAG=`git tag --sort=taggerdate | tail -1`
+TAG=`git describe --abbrev=0 --tags`
 
 # Retrieve the date the git tag was generated at, and store it in DATE variable.
 DATE=`git log -1 --format=%ci | awk '{print $1; }'`
@@ -58,14 +57,14 @@ DATE=`git log -1 --format=%ci | awk '{print $1; }'`
 echo "# [RELEASE ${TAG}]($CONCAT_URL) - ${DATE}" >> $TEMP_FILE
 
 # Retrieve the commits that occured between the latest tag and the previous one in chronological order, and store them in GIT_LOG variable. 
-# Commits are separated using the * character.
-GIT_LOG=`git log --reverse --pretty="*%s (%h)" $(git tag --sort=-taggerdate | head -2)...$(git tag --sort=-taggerdate | head -1)`
+# Commits are separated using the + character.
+GIT_LOG=`git log --reverse --pretty="+%s (%h)" $(git tag --sort=-taggerdate | head -2)...$(git tag --sort=-taggerdate | head -1)`
 
 # If GIT_LOG variable is empty, i.e. the only tag in the repository is the last one, then retrieve only the commits that occured before the last tag.
 # This convention will be triggered e.g. during the first version release of a project.
 if [ -z "$GIT_LOG" ]
 then
-  GIT_LOG=`git log --reverse --pretty="*%s (%h)" $(git tag --sort=-taggerdate | head -1)`
+  GIT_LOG=`git log --reverse --pretty="+%s (%h)" $(git tag --sort=-taggerdate | head -1)`
 fi
 
 # Define arrays that will be filled with each commit category.
@@ -80,8 +79,8 @@ refactor=() # A code change that neither fixes a bug nor adds a feature
 perf=() # A code change that improves performance
 test=() # Adding missing tests or correcting existing tests
 
-# Split commits uppon * character and save to arrays depending on their message
-IFS=* commits=($GIT_LOG)
+# Split commits uppon + character and save to arrays depending on their message
+IFS=+ commits=($GIT_LOG)
 
 for i in "${commits[@]}"; do
   if [[ $i = feat:* ]]
@@ -125,6 +124,7 @@ else
   echo '### ✨ Features' >> $TEMP_FILE
   for i in "${feature[@]}"
   do
+    echo $i
     LINK=$COMMIT_URL/$(git rev-parse $(echo $i | cut -d "(" -f2 | cut -d ")" -f1))
     echo "- [$i]($LINK)" >> $TEMP_FILE
   done
