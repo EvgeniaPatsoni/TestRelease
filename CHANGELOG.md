@@ -1,3 +1,7 @@
+# [RELEASE 1.1.0](https://github.com/EvgeniaPatsoni/TestRelease/compare/1.1.0...1.0.28) - 2022-04-08
+### 🐛 Fixes
+- [fix: random (28f93f1)
+](https://github.com/EvgeniaPatsoni/TestRelease/commit/28f93f17670e96c9e223ed4c459bc105bdebfb96)
 # [RELEASE 0.0.16](https://github.com/EvgeniaPatsoni/TestRelease/compare/0.0.16...1.0.15) - 2022-04-07
 ### ✨ Features
 - [feat: new features (bfd9d7d)
