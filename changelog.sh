@@ -60,7 +60,7 @@ echo "# [RELEASE ${TAG}]($CONCAT_URL) - ${DATE}" >> $TEMP_FILE
 # Retrieve the commits that occured between the latest tag and the previous one in chronological order, and store them in GIT_LOG variable. 
 # Commits are separated using the + character.
 GIT_LOG=`git log --reverse --pretty="+%s (%h)" $(git tag --sort=-taggerdate | head -2)...$(git tag --sort=-taggerdate | head -1)`
-
+echo $GIT_LOG
 # If GIT_LOG variable is empty, i.e. the only tag in the repository is the last one, then retrieve only the commits that occured before the last tag.
 # This convention will be triggered e.g. during the first version release of a project.
 if [ -z "$GIT_LOG" ]

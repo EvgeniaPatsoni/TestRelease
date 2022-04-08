@@ -1,3 +1,7 @@
+# [RELEASE 1.2.0](https://github.com/EvgeniaPatsoni/TestRelease/compare/1.2.0...1.1.0) - 2022-04-08
+### 🐛 Fixes
+- [fix: random abc 123 (d21493d)
+](https://github.com/EvgeniaPatsoni/TestRelease/commit/d21493dd0c97fa20c6738ea44bf7a9e0a5c461fc)
 # [RELEASE 1.1.0](https://github.com/EvgeniaPatsoni/TestRelease/compare/1.1.0...1.0.28) - 2022-04-08
 ### 🐛 Fixes
 - [fix: random (28f93f1)
