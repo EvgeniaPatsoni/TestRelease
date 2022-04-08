@@ -1,3 +1,15 @@
+# [RELEASE 1.3.0](https://github.com/EvgeniaPatsoni/TestRelease/compare/1.3.0...1.2.0) - 2022-04-08
+### 🐛 Fixes
+- [fix: fixed this (fa9b78e)
+](https://github.com/EvgeniaPatsoni/TestRelease/commit/fa9b78ec628aef0db5b01db9bb690839ee755d12)
+- [fix!: fixed that (164d992)
+](https://github.com/EvgeniaPatsoni/TestRelease/commit/164d9929330193d1db86e4bb70f487e86de47eaa)
+### 🛠 Builds
+- [build!: 1 2 3 4 5 (df7ef8b)
+](https://github.com/EvgeniaPatsoni/TestRelease/commit/df7ef8b6235d16c7723c89c0f4dc6a8717dec52b)
+### 📦 Code Refactoring
+- [refactor: changelog script update (2f4e192)
+](https://github.com/EvgeniaPatsoni/TestRelease/commit/2f4e1920b98ed1f4037834672bf32eec1d7bfea2)
 # [RELEASE 1.2.0](https://github.com/EvgeniaPatsoni/TestRelease/compare/1.2.0...1.1.0) - 2022-04-08
 ### 🐛 Fixes
 - [fix: random abc 123 (d21493d)
