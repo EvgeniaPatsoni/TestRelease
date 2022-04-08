@@ -10,6 +10,9 @@
 
 ### Features
 
+* hihihi
+ 10f6ec5
+
 * test feat
  74667c6
 
@@ -151,6 +154,12 @@
 
 
 ### Fixes
+
+* bla bla bla bla
+ de56394
+
+* hihihi
+ 887f0a2
 
 * test fix
  d6f9a73
