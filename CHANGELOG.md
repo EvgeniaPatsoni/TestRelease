@@ -1,6 +1,20 @@
 #  (2022-04-08)
 
 
+### Bug Fixes
+
+* deleted files ([3d6c371](https://github.com/EvgeniaPatsoni/TestRelease/commit/3d6c3719c915b921338a3b02cf854bafe15b79c9))
+
+
+### Features
+
+* feat ([26e5686](https://github.com/EvgeniaPatsoni/TestRelease/commit/26e5686775f8d71eee464226e43ca6d53a0e5f81))
+
+
+
+#  (2022-04-08)
+
+
 
 # CHANGELOG
 
