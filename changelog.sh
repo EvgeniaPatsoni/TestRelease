@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -eu
 
 # Define OUTPUT_FILE variable as CHANGELOG.md, which is the final changelog file.
@@ -30,7 +30,7 @@ then
   URL_CREDENTIALS=$(echo "$URL_GIT_ENDING" | sed -e 's/\(:\/\/\).*\(@\)/\1\2/') # Trim the user's credentials from the remote url
   URL=`echo "${URL_CREDENTIALS//@}"` # Trim the '@' character and finally save the 'clean' url to URL variable
   COMPARE_URL=`echo "$URL" | sed -r 's|/r/+|/compare/|g'` # Replace '/r/' with '/compare/' and save to COMPARE_URL variable. This url will be used in order to compare the differences between the last two tags.
-  CONCAT_URL="$COMPARE_URL/$TAG1..$TAG2" # Concat '/' character and the two last tag version numbers to COMPARE_URL variable, in order to get the hyperlink that displays the comparison of these two tags.
+  CONCAT_URL="$COMPARE_URL/$TAG2..$TAG1" # Concat '/' character and the two last tag version numbers to COMPARE_URL variable, in order to get the hyperlink that displays the comparison of these two tags.
   COMMIT_URL=`echo "$URL" | sed -r 's|/r/+|/commit/|g'` # Replace '/r/' with '/commit/' and save to COMMIT_URL variable. This url will be used in order to create a hyperlink to a specific commit in gitblit.
 
 elif [[ "$REPO_TYPE" =~ .*"github.com".* ]];
@@ -60,7 +60,7 @@ echo "# [RELEASE ${TAG}]($CONCAT_URL) - ${DATE}" >> $TEMP_FILE
 # Retrieve the commits that occured between the latest tag and the previous one in chronological order, and store them in GIT_LOG variable. 
 # Commits are separated using the + character.
 GIT_LOG=`git log --reverse --pretty="+%s (%h)" $(git tag --sort=-taggerdate | head -2)...$(git tag --sort=-taggerdate | head -1)`
-echo $GIT_LOG
+
 # If GIT_LOG variable is empty, i.e. the only tag in the repository is the last one, then retrieve only the commits that occured before the last tag.
 # This convention will be triggered e.g. during the first version release of a project.
 if [ -z "$GIT_LOG" ]
@@ -84,34 +84,34 @@ test=() # Adding missing tests or correcting existing tests
 IFS=+ commits=($GIT_LOG)
 
 for i in "${commits[@]}"; do
-  if [[ $i = feat:* ]] || [[ $i = feat!:* ]]
+  if [[ ${i,,} = feat:* ]] || [[ ${i,,} = feat!:* ]]
   then
     feature+=($i)
-  elif [[ $i = fix:* ]] || [[ $i = fix!:* ]] 
+  elif [[ ${i,,} = fix:* ]] || [[ ${i,,} = fix!:* ]] 
   then
     fix+=($i)
-  elif [[ $i = build:* ]] || [[ $i = build!:* ]]   
+  elif [[ ${i,,} = build:* ]] || [[ ${i,,} = build!:* ]]   
   then
     build+=($i)
-  elif [[ $i = chore:* ]] || [[ $i = chore!:* ]]   
+  elif [[ ${i,,} = chore:* ]] || [[ ${i,,} = chore!:* ]]   
   then
     chore+=($i)    
-  elif [[ $i = ci:* ]] || [[ $i = ci!:* ]]   
+  elif [[ ${i,,} = ci:* ]] || [[ ${i,,} = ci!:* ]]   
   then
     ci+=($i)     
-  elif [[ $i = doc:* ]] || [[ $i = doc!:* ]]   
+  elif [[ ${i,,} = doc:* ]] || [[ ${i,,} = doc!:* ]]   
   then
     doc+=($i) 
-  elif [[ $i = style:* ]] || [[ $i = style!:* ]]   
+  elif [[ ${i,,} = style:* ]] || [[ ${i,,} = style!:* ]]   
   then
     style+=($i) 
-  elif [[ $i = refactor:* ]] || [[ $i = refactor!:* ]]   
+  elif [[ ${i,,} = refactor:* ]] || [[ ${i,,} = refactor!:* ]]   
   then
     refactor+=($i) 
-  elif [[ $i = perf:* ]] || [[ $i = perf!:* ]]   
+  elif [[ ${i,,} = perf:* ]] || [[ ${i,,} = perf!:* ]]   
   then
     perf+=($i) 
-  elif [[ $i = test:* ]] || [[ $i = test!:* ]]   
+  elif [[ ${i,,} = test:* ]] || [[ ${i,,} = test!:* ]]   
   then
     test+=($i) 
   elif [[ -z "${i-}"  ]] || [[ "${i-}" = $'\n' ]]
