@@ -7,7 +7,8 @@
 *.ipr
 *.iml
 *.iws
-*VERSION
+VERSION
+VERSION.old
 bin
 build
 out
