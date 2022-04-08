@@ -113,8 +113,12 @@ for i in "${commits[@]}"; do
     perf+=($i) 
   elif [[ $i = test:* ]]   
   then
-    test+=($i)                      
-  fi  
+    test+=($i) 
+  elif [[ -z "${i-}"  ]] || [[ "${i-}" = $'\n' ]]
+  then
+    :                      
+  fi
+
 done
 
 # Parse each array and print their contents (commit messages) under the corresponding category (e.g. Fixes, Features, etc.) in the temporary changelog file. 
