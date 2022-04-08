@@ -84,34 +84,34 @@ test=() # Adding missing tests or correcting existing tests
 IFS=+ commits=($GIT_LOG)
 
 for i in "${commits[@]}"; do
-  if [[ $i = feat:* ]]
+  if [[ $i = feat:* ]] || [[ $i = feat!:* ]]
   then
     feature+=($i)
-  elif [[ $i = fix:* ]] 
+  elif [[ $i = fix:* ]] || [[ $i = fix!:* ]] 
   then
     fix+=($i)
-  elif [[ $i = build:* ]]   
+  elif [[ $i = build:* ]] || [[ $i = build!:* ]]   
   then
     build+=($i)
-  elif [[ $i = chore:* ]]   
+  elif [[ $i = chore:* ]] || [[ $i = chore!:* ]]   
   then
     chore+=($i)    
-  elif [[ $i = ci:* ]]   
+  elif [[ $i = ci:* ]] || [[ $i = ci!:* ]]   
   then
     ci+=($i)     
-  elif [[ $i = doc:* ]]   
+  elif [[ $i = doc:* ]] || [[ $i = doc!:* ]]   
   then
     doc+=($i) 
-  elif [[ $i = style:* ]]   
+  elif [[ $i = style:* ]] || [[ $i = style!:* ]]   
   then
     style+=($i) 
-  elif [[ $i = refactor:* ]]   
+  elif [[ $i = refactor:* ]] || [[ $i = refactor!:* ]]   
   then
     refactor+=($i) 
-  elif [[ $i = perf:* ]]   
+  elif [[ $i = perf:* ]] || [[ $i = perf!:* ]]   
   then
     perf+=($i) 
-  elif [[ $i = test:* ]]   
+  elif [[ $i = test:* ]] || [[ $i = test!:* ]]   
   then
     test+=($i) 
   elif [[ -z "${i-}"  ]] || [[ "${i-}" = $'\n' ]]
