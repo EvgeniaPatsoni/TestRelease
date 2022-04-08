@@ -43,7 +43,7 @@ then
   URL_GIT_ENDING=${URL_REMOTE::-4} # Trim the last 4 characters (i.e. '.git') of the remote url
   URL_CREDENTIALS=$(echo "$URL_GIT_ENDING" | sed -e 's/\(:\/\/\).*\(@\)/\1\2/') # Trim the user's credentials from the remote url
   URL=`echo "${URL_CREDENTIALS//@}"` # Trim the '@' character and finally save the 'clean' url to URL variable  
-  CONCAT_URL="$URL/compare/$TAG1...$TAG2"  # Concat '/' character and the two last tag version numbers to COMPARE_URL variable, in order to get the hyperlink that displays the comparison of these two tags.
+  CONCAT_URL="$URL/compare/$TAG2...$TAG1"  # Concat '/' character and the two last tag version numbers to COMPARE_URL variable, in order to get the hyperlink that displays the comparison of these two tags.
   COMMIT_URL="$URL/commit" # Concat '/commit' to CONCAT_URL variable. This url will be used in order to create a hyperlink to a specific commit in github.
 
 fi
