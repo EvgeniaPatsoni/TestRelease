@@ -409,7 +409,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add workflows.
 - Initial commit.
 
-[Unreleased]: https://EvgeniaPatsoni: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@github.com/EvgeniaPatsoni/TestRelease/compare/1.3.0...HEAD
+[Unreleased]: https://EvgeniaPatsoni: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@github.com/EvgeniaPatsoni/TestRelease/compare/1.4.0...HEAD
+[1.4.0]: https://EvgeniaPatsoni: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@github.com/EvgeniaPatsoni/TestRelease/compare/1.3.0...1.4.0
 [1.3.0]: https://EvgeniaPatsoni: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@github.com/EvgeniaPatsoni/TestRelease/compare/1.2.0...1.3.0
 [1.2.0]: https://EvgeniaPatsoni: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@github.com/EvgeniaPatsoni/TestRelease/compare/1.1.0...1.2.0
 [1.1.0]: https://EvgeniaPatsoni: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@github.com/EvgeniaPatsoni/TestRelease/compare/1.0.28...1.1.0
