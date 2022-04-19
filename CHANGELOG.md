@@ -1,4 +1,20 @@
 
+<a name="1.3.11"></a>
+## [1.3.11](https://github.com/EvgeniaPatsoni/TestRelease/compare/1.3.9...1.3.11) (2022-04-19)
+
+### Bug Fixes
+
+* **changelog:** release notes fix
+
+### Continuous Integration
+
+* slfjsjfsjfsjflsjljldjldjgljdlfgjdljgldkjgldjglkdjgl
+
+### Tests
+
+* a test
+
+
 <a name="1.3.9"></a>
 ## [1.3.9](https://github.com/EvgeniaPatsoni/TestRelease/compare/1.3.8...1.3.9) (2022-04-19)
 
