@@ -28,6 +28,7 @@ pipeline {
         {
             steps{
                 sh '''
+                    git fetch --tags --force                
                     mvn versions:set -DnewVersion=$RELEASE_VERSION
                     mvn versions:commit
                 '''
@@ -42,6 +43,7 @@ pipeline {
                         git remote set-url origin https://$Username:$Password@github.com/EvgeniaPatsoni/TestRelease.git
                         git config --global user.email "patsonievgenia@gmail.com"
                         git config --global user.name "$Username"
+
                         git commit -a -m "release: prepare release $RELEASE_VERSION"
                         git tag -a $RELEASE_VERSION -m "$RELEASE_VERSION"
                         docker run -v "$PWD":/workdir quay.io/git-chglog/git-chglog -o CHANGELOG.md
