@@ -46,7 +46,7 @@ pipeline {
                         git tag -a $RELEASE_VERSION -m "$RELEASE_VERSION"
                         docker run -v "$PWD":/workdir quay.io/git-chglog/git-chglog -o CHANGELOG.md
                         git add . && git commit --amend --no-edit && git tag -d $RELEASE_VERSION && git tag -a $RELEASE_VERSION -m "$RELEASE_VERSION"
-                        git push https://$Username:$Password@github.com/EvgeniaPatsoni/TestRelease.git HEAD:master --tags
+                        git push https://$Username:$Password@github.com/EvgeniaPatsoni/TestRelease.git HEAD:main --tags
                     '''
                 }
             }
