@@ -1,6 +1,6 @@
 
-<a name="1.3.4"></a>
-## 1.3.4
+<a name="1.3.5"></a>
+## 1.3.5
 
 > 2022-04-19
 
@@ -117,6 +117,8 @@
 
 ### Fix
 
+* another fix
+* a fix
 * a fix
 * fixed this
 * random abc 123
@@ -219,6 +221,7 @@
 
 ### Perf
 
+* performance improvement
 * improved ... test
 
 ### Refactor
@@ -232,6 +235,7 @@
 
 ### Release
 
+* prepare release 1.3.5
 * prepare release 1.3.4
 * prepare release 1.3.2
 * prepare release 1.3.1
