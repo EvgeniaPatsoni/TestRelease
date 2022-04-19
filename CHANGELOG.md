@@ -1,4 +1,20 @@
 
+<a name="1.3.9"></a>
+## [1.3.9](https://github.com/EvgeniaPatsoni/TestRelease/compare/1.3.8...1.3.9) (2022-04-19)
+
+### Bug Fixes
+
+* **changelog:** release notes
+
+### Build
+
+* **server:** lshsldlgdl
+
+### Tests
+
+* a test
+
+
 <a name="1.3.8"></a>
 ## [1.3.8](https://github.com/EvgeniaPatsoni/TestRelease/compare/1.3.7...1.3.8) (2022-04-19)
 
