@@ -1,8 +1,8 @@
 pipeline {
    agent {
          docker {
-            image 'eddevopsd2/maven-java-npm-docker:mvn3.6.3-jdk11-npm6.14.4-docker'
-            args '-v /root/.m2:/root/.m2'
+            image 'eddevopsd2/ubuntu-dind:dind-mvn3.6.3-jdk15-npm6.14.13-buildx-azurecli'
+            args '--privileged -v /root/.m2:/root/.m2'
         }
    }
    options {
@@ -10,56 +10,46 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '10'))
    }
     stages {
-        stage ('Clone from github')
+        stage ('Prompt for Input') {
+            steps {
+                script {
+                    env.RELEASE_VERSION = input message: 'Release version:',
+                                     parameters: [string(defaultValue: '',
+                                                  description: '',
+                                                  name: 'Release version')]
+                    env.NEXT_DEV_VERSION = input message: 'Snapshot version:',
+                                     parameters: [string(defaultValue: '',
+                                                  description: '',
+                                                  name: 'Next development version')]
+                }
+            }
+        }        
+        stage ('Set to release version')
         {
+            steps{
+                sh '''
+                    mvn versions:set -DnewVersion=$RELEASE_VERSION
+                    mvn versions:commit
+                '''
+            }
+        }
+        stage ('Push changes for release version') {
             steps{
                 withCredentials([usernamePassword(credentialsId: 'epats-github',
                 usernameVariable: 'Username',
                 passwordVariable: 'Password')]){
                     sh '''
-                        mkdir test-release
-                        cd test-release
-                        git clone https://$Username:$Password@github.com/EvgeniaPatsoni/TestRelease.git
-                        cd ../..
-                    '''
-                }
-            }
-        }
-        stage ('Deliver code to gitlab repository') {
-            steps{
-                withCredentials([usernamePassword(credentialsId: 'epats-gitlab',
-                usernameVariable: 'Username',
-                passwordVariable: 'Password')]){
-                    sh '''
-                        git clone https://$Username:$Password@gitlab.com/EvgeniaPatsoni/test-remote.git
-                        cd test-remote
-                        git checkout development
-                        rm -rf $(ls -A | grep -v .git)
-                        cd ..
-
-                        mkdir temp
-
-                        cd test-release/TestRelease
-                        git checkout 1.0.0
-                        cd ../..
-
-                        cp -R test-release/TestRelease/. temp/
-                        rm -rf temp/.git temp/.gitignore temp/Jenkinsfile temp/docs/ed temp/sonar-project.properties
-                        cp -R temp/. test-remote/
-                          
-                        cd test-remote
-                        
+                        git remote set-url origin https://$Username:$Password@github.com/EvgeniaPatsoni/TestRelease.git
                         git config --global user.email "patsonievgenia@gmail.com"
-                        git config --global user.name "EvgeniaPatsoni"
-                        git remote set-url origin https://$Username:$Password@gitlab.com/EvgeniaPatsoni/test-remote.git
- 
-                        git add .
-                        git status
-                        git commit -m "v 1.0.0 delivery"
-                        git push -u https://$Username:$Password@gitlab.com/EvgeniaPatsoni/test-remote.git -o merge_request.create HEAD:development
+                        git config --global user.name "$Username"
+                        git commit -a -m "release: prepare release $RELEASE_VERSION"
+                        git tag -a $RELEASE_VERSION -m "$RELEASE_VERSION"
+                        docker run -v "$PWD":/workdir quay.io/git-chglog/git-chglog -o CHANGELOG.md
+                        git add . && git commit --amend --no-edit && git tag -d $RELEASE_VERSION && git tag -a $RELEASE_VERSION -m "$RELEASE_VERSION"
+                        git push https://$Username:$Password@github.com/EvgeniaPatsoni/TestRelease.git HEAD:master --tags
                     '''
                 }
             }
-        }  
+        }        
     }
 }   
