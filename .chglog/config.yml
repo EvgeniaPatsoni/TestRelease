@@ -5,7 +5,7 @@ info:
   repository_url: https://github.com/EvgeniaPatsoni/TestRelease
 options:
   commits:
-     filters:
+    filters:
        Type:
          - feat
          - fix
@@ -18,7 +18,7 @@ options:
          - perf
          - refactor
   commit_groups:
-     title_maps:
+    title_maps:
        feat: Features
        fix: Bug Fixes
        build: Build
@@ -30,9 +30,10 @@ options:
        perf: Performance Improvements
        refactor: Code Refactoring
   header:
-    pattern: "^(\\w*)\\:\\s(.*)$"
+    pattern: "^(\\w*)(?:\\(([\\w\\$\\.\\-\\*\\s]*)\\))?\\:\\s(.*)$"
     pattern_maps:
       - Type
+      - Scope
       - Subject
   notes:
     keywords:
